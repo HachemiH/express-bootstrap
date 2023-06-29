@@ -1,10 +1,12 @@
-// server.js
-const PORT = process.env.PORT || 3000;
+import http from "http";
 
 const startServer = (app) => {
-  app.listen(PORT, () => {
-    console.log(`Serveur en écoute depuis le port ${PORT}`);
+  const server = http.createServer(app);
+  const port = process.env.PORT || 3000;
+
+  server.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
   });
 };
 
-export default startServer;
+export { startServer };
